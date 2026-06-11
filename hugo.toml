@@ -1,31 +1,131 @@
 baseURL = "https://harunohi88.github.io/"
 languageCode = "ko-kr"
-title = "harunohi devlog"
+defaultContentLanguage = "ko"
+title = "harunohi.dev"
 theme = "PaperMod"
+enableRobotsTXT = true
+enableGitInfo = true
+summaryLength = 28
+
+[pagination]
+  pagerSize = 8
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[minify]
+  disableXML = true
+  minifyOutput = true
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+    lineNos = true
+    codeFences = true
+    guessSyntax = true
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
 
 [params]
+  env = "production"
   author = "harunohi"
+  description = "개발 과정에서 배운 것과 문제 해결 과정을 기록하는 기술 블로그"
+  keywords = ["개발", "프로그래밍", "기술 블로그", "Hugo", "GitHub Pages"]
   defaultTheme = "auto"
+  disableThemeToggle = false
+  mainSections = ["posts"]
+  DateFormat = "2006. 01. 02"
   ShowReadingTime = true
   ShowCodeCopyButtons = true
   ShowBreadCrumbs = true
   ShowPostNavLinks = true
+  ShowToc = true
+  TocOpen = false
+  ShowShareButtons = true
+  ShareButtons = ["linkedin", "x"]
+  ShowWordCount = true
+  ShowRssButtonInSectionTermList = true
+  ShowFullTextinRSS = true
+  displayFullLangName = true
+  comments = false
+
+  [params.label]
+    text = "harunohi.dev"
+
+  [params.homeInfoParams]
+    Title = "기록하고, 이해하고, 다시 씁니다."
+    Content = """
+백엔드와 인프라를 중심으로 **직접 부딪혀 해결한 개발 경험**을 기록합니다.
+
+<div class="hero-actions">
+  <a class="primary-action" href="/posts/">글 둘러보기</a>
+  <a class="secondary-action" href="/about/">블로그 소개</a>
+</div>
+"""
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/harunohi88"
+  [[params.socialIcons]]
+    name = "rss"
+    url = "/index.xml"
+
+  [params.assets]
+    favicon = "/favicon.svg"
+    favicon16x16 = "/favicon.svg"
+    favicon32x32 = "/favicon.svg"
+    apple_touch_icon = "/favicon.svg"
+
+  [params.fuseOpts]
+    isCaseSensitive = false
+    shouldSort = true
+    location = 0
+    distance = 1000
+    threshold = 0.3
+    minMatchCharLength = 2
+    keys = ["title", "permalink", "summary", "content"]
 
 [menu]
   [[menu.main]]
     identifier = "posts"
-    name = "Posts"
+    name = "글"
     url = "/posts/"
     weight = 10
-
+  [[menu.main]]
+    identifier = "tags"
+    name = "태그"
+    url = "/tags/"
+    weight = 20
   [[menu.main]]
     identifier = "projects"
-    name = "Projects"
+    name = "프로젝트"
     url = "/projects/"
-    weight = 20
-
+    weight = 30
+  [[menu.main]]
+    identifier = "archives"
+    name = "아카이브"
+    url = "/archives/"
+    weight = 40
+  [[menu.main]]
+    identifier = "search"
+    name = "검색"
+    url = "/search/"
+    weight = 50
   [[menu.main]]
     identifier = "about"
-    name = "About"
+    name = "소개"
     url = "/about/"
-    weight = 30
+    weight = 60
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[privacy]
+  [privacy.x]
+    enableDNT = true
+  [privacy.youtube]
+    privacyEnhanced = true
