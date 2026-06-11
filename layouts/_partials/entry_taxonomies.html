@@ -1,0 +1,13 @@
+{{- $page := . -}}
+{{- $tags := $page.GetTerms "tags" -}}
+{{- $categories := $page.GetTerms "categories" -}}
+{{- if or $tags $categories }}
+<div class="entry-taxonomies" aria-label="글 분류">
+  {{- range first 3 $tags }}
+  <a class="entry-taxonomy entry-tag" href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>
+  {{- end }}
+  {{- range first 1 $categories }}
+  <a class="entry-taxonomy entry-category" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+  {{- end }}
+</div>
+{{- end }}

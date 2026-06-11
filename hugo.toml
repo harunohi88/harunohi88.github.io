@@ -1,7 +1,7 @@
 baseURL = "https://harunohi88.github.io/"
 languageCode = "ko-kr"
 defaultContentLanguage = "ko"
-title = "harunohi.dev"
+title = "harunohi devlog"
 theme = "PaperMod"
 enableRobotsTXT = true
 enableGitInfo = true
@@ -32,11 +32,12 @@ summaryLength = 28
 [params]
   env = "production"
   author = "harunohi"
-  description = "개발 과정에서 배운 것과 문제 해결 과정을 기록하는 기술 블로그"
-  keywords = ["개발", "프로그래밍", "기술 블로그", "Hugo", "GitHub Pages"]
+  description = "C/C++ 임베디드, Linux Kernel, 펌웨어, Raspberry Pi, 리버스 엔지니어링 학습과 프로젝트를 기록하는 개발 블로그"
+  keywords = ["C", "C++", "Embedded", "Linux", "Linux Kernel", "Firmware", "Raspberry Pi", "Reverse Engineering"]
   defaultTheme = "auto"
   disableThemeToggle = false
   mainSections = ["posts"]
+  searchSections = ["posts", "projects"]
   DateFormat = "2006. 01. 02"
   ShowReadingTime = true
   ShowCodeCopyButtons = true
@@ -56,13 +57,14 @@ summaryLength = 28
     text = "harunohi.dev"
 
   [params.homeInfoParams]
-    Title = "기록하고, 이해하고, 다시 씁니다."
+    Title = "하드웨어 가까이에서, 소프트웨어를 깊게."
     Content = """
-백엔드와 인프라를 중심으로 **직접 부딪혀 해결한 개발 경험**을 기록합니다.
+**C/C++ 임베디드, Linux Kernel, 펌웨어와 리버스 엔지니어링**을 공부하며
+직접 실험하고 문제를 해결한 과정을 기록합니다.
 
 <div class="hero-actions">
-  <a class="primary-action" href="/posts/">글 둘러보기</a>
-  <a class="secondary-action" href="/about/">블로그 소개</a>
+  <a class="primary-action" href="/posts/">학습 기록</a>
+  <a class="secondary-action" href="/projects/">프로젝트</a>
 </div>
 """
 
@@ -87,7 +89,7 @@ summaryLength = 28
     distance = 1000
     threshold = 0.3
     minMatchCharLength = 2
-    keys = ["title", "permalink", "summary", "content"]
+    keys = ["title", "permalink", "summary", "content", "tags", "categories"]
 
 [menu]
   [[menu.main]]
@@ -100,6 +102,11 @@ summaryLength = 28
     name = "태그"
     url = "/tags/"
     weight = 20
+  [[menu.main]]
+    identifier = "categories"
+    name = "분류"
+    url = "/categories/"
+    weight = 25
   [[menu.main]]
     identifier = "projects"
     name = "프로젝트"
@@ -124,6 +131,7 @@ summaryLength = 28
 [taxonomies]
   tag = "tags"
   category = "categories"
+  series = "series"
 
 [privacy]
   [privacy.x]

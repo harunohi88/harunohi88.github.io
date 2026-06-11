@@ -1,0 +1,33 @@
+{{- $title := .Get "title" -}}
+{{- $status := .Get "status" -}}
+{{- $github := .Get "github" -}}
+{{- $posts := .Get "posts" -}}
+<article class="project-card">
+  <header class="project-card__header">
+    <h2>{{ $title }}</h2>
+    {{- with $status }}<span class="project-status">{{ . }}</span>{{ end -}}
+  </header>
+  <p class="project-summary">{{ .Get "summary" }}</p>
+  <dl class="project-details">
+    <div>
+      <dt>사용 기술</dt>
+      <dd>{{ .Get "tech" }}</dd>
+    </div>
+    <div>
+      <dt>문제 해결 과정</dt>
+      <dd>{{ .Get "problem" }}</dd>
+    </div>
+    <div>
+      <dt>배운 점</dt>
+      <dd>{{ .Get "learned" }}</dd>
+    </div>
+  </dl>
+  <footer class="project-links">
+    {{- if $github }}
+    <a href="{{ $github }}">GitHub 저장소</a>
+    {{- else }}
+    <span aria-disabled="true">GitHub 준비 중</span>
+    {{- end }}
+    {{- with $posts }}<a href="{{ . }}">관련 포스트</a>{{ end -}}
+  </footer>
+</article>
