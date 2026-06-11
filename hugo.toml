@@ -74,6 +74,7 @@ summaryLength = 28
     url = "/index.xml"
 
   [params.assets]
+    disableFingerprinting = true
     favicon = "/favicon.svg"
     favicon16x16 = "/favicon.svg"
     favicon32x32 = "/favicon.svg"
