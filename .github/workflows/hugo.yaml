@@ -49,6 +49,11 @@ jobs:
           HUGO_ENV: production
         run: hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
 
+      - name: Verify legacy stylesheet
+        run: |
+          echo "6d6bf5f1e6da2d5d675ee7f9c6d78e7d68a4829e628d33c2d7830279a8a1d729  public/assets/css/stylesheet.6d6bf5f1e6da2d5d675ee7f9c6d78e7d68a4829e628d33c2d7830279a8a1d729.css" \
+            | sha256sum --check
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
         with:
